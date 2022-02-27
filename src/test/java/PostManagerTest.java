@@ -83,8 +83,6 @@ class PostManagerTest {
         FilmData ninth = new FilmData(9, 9, "Belgrade Hotel", "comedy");
         FilmData tenth = new FilmData(10, 10, "Gentlemen", "action");
 
-        PostManager manager = new PostManager(6);
-
         manager.save(first);
         manager.save(second);
         manager.save(third);
@@ -98,9 +96,8 @@ class PostManagerTest {
 
         manager.removeById(10);
 
-        FilmData[] expected = {ninth,eighth,seventh,sixth,fifth,fourth};
-        FilmData[] actual = manager.getMaximum();;
+        FilmData[] expected = {ninth,eighth,seventh,sixth,fifth,};
+        FilmData[] actual = manager.getMaximum(5);;
         assertArrayEquals(expected,actual);
-
     }
 }

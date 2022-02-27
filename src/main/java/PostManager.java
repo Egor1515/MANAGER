@@ -53,6 +53,7 @@ public class PostManager {
             }
             films = tmp;
 
+
         }
     }
 
@@ -68,12 +69,12 @@ public class PostManager {
 
     }
 
-    public FilmData[] getMaximum() {
+    public FilmData[] getMaximum(int managerLimit) {
         FilmData[] films = findLast();
         FilmData[] result = new FilmData[managerLimit];
         for (int i = 0; i < managerLimit; i++) {
 
-            result[i]= films[i];
+            result[i] = films[i];
         }
 
         return result;
