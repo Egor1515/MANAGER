@@ -6,7 +6,7 @@ class PostManagerTest {
     PostManager manager = new PostManager();
 
     @Test
-    void test() {
+    void shouldRemove() {
 
         FilmData first = new FilmData(1, 1, "BloodShot", "action");
         FilmData second = new FilmData(2, 2, "Forward", "cartoon");
@@ -16,7 +16,6 @@ class PostManagerTest {
         FilmData sixth = new FilmData(6, 6, "Trolls", "cartoon");
         FilmData seventh = new FilmData(7, 7, "Number one", "comedy");
 
-        PostManager manager = new PostManager();
         manager.save(first);
         manager.save(second);
         manager.save(third);
@@ -31,7 +30,7 @@ class PostManagerTest {
     }
 
     @Test
-    void test1() {
+    void shouldAdd() {
 
         FilmData first = new FilmData(1, 1, "BloodShot", "action");
         FilmData second = new FilmData(2, 2, "Forward", "cartoon");
@@ -58,19 +57,36 @@ class PostManagerTest {
         FilmData second = new FilmData(2, 2, "Forward", "cartoon");
         FilmData third = new FilmData(3, 3, "Belgrade Hotel", "comedy");
         FilmData forth = new FilmData(4, 4, "Gentlemen", "action");
+        FilmData fifth = new FilmData(5, 5, "BloodShot", "action");
+        FilmData sixth = new FilmData(6, 6, "Forward", "cartoon");
+        FilmData seventh = new FilmData(7, 7, "Belgrade Hotel", "comedy");
+        FilmData eighth = new FilmData(8, 8, "Gentlemen", "action");
+        FilmData ninth = new FilmData(9, 9, "BloodShot", "action");
+        FilmData tenth = new FilmData(10, 10, "Forward", "cartoon");
+        FilmData eleventh = new FilmData(11, 11, "Belgrade Hotel", "comedy");
+        FilmData twelfth = new FilmData(12, 12, "Belgrade Hotel", "comedy");
+
 
         manager.save(first);
         manager.save(second);
         manager.save(third);
         manager.save(forth);
+        manager.save(fifth);
+        manager.save(sixth);
+        manager.save(seventh);
+        manager.save(eighth);
+        manager.save(ninth);
+        manager.save(tenth);
+        manager.save(eleventh);
 
 
-        FilmData[] expected = {forth,third,second,first};
+
+        FilmData[] expected = {eleventh,tenth,ninth,eighth,seventh,sixth,fifth,forth,third,second};
         FilmData[] actual = manager.findLast();
         assertArrayEquals(expected,actual);
     }
     @Test
-    void asd(){
+    void shouldGetMax(){
 
         FilmData first = new FilmData(1, 1, "BloodShot", "action");
         FilmData second = new FilmData(2, 2, "Forward", "cartoon");

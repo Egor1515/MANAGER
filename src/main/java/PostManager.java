@@ -20,6 +20,7 @@ public class PostManager {
         int lastIndex = tmp.length - 1;
         tmp[lastIndex] = film;
         films = tmp;
+
     }
 
     public void addNew(FilmData film) {
@@ -60,22 +61,32 @@ public class PostManager {
     public FilmData[] findLast() {
         FilmData[] films = findAll();
         FilmData[] result = new FilmData[films.length];
-        for (int i = 0; i < result.length; i++) {
-            int index = films.length - i - 1;
-            result[i] = films[index];
+
+        if (result.length <= managerLimit) {
+            for (int i = 0; i < result.length; i++) {
+                int index = films.length - i - 1;
+                result[i] = films[index];
+
+            }
+            return result;
+        } else {
+            FilmData[] limit = new FilmData[managerLimit];
+
+            for (int i = 0; i < managerLimit; i++) {
+                int index = films.length - i - 1;
+                limit[i] = films[index];
+            }
+            return limit;
         }
-        return result;
 
 
     }
 
+
     public FilmData[] getMaximum(int managerLimit) {
         FilmData[] films = findLast();
         FilmData[] result = new FilmData[managerLimit];
-        for (int i = 0; i < managerLimit; i++) {
-
-            result[i] = films[i];
-        }
+        System.arraycopy(films, 0, result, 0, managerLimit);
 
         return result;
     }
